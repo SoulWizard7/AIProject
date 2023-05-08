@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "MassEntitySubsystem.h"
+#include "NavigationSystem.h"
+#include "MassAgentComponent.h"
 #include "AITestingCharacter.generated.h"
 
 
@@ -12,6 +15,7 @@ UCLASS(config=Game)
 class AAITestingCharacter : public ACharacter
 {
 	GENERATED_BODY()
+
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -39,6 +43,10 @@ class AAITestingCharacter : public ACharacter
 
 public:
 	AAITestingCharacter();
+
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera)
+	UMassAgentComponent* MassAgentComponent;
 	
 
 protected:
